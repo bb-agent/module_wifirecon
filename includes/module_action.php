@@ -43,7 +43,7 @@ function killRegex($regex){
 	
 	if (count($output) > 0) {
 		$exec = "kill " . $output[0];
-		exec_fruitywifi($exec);
+		exec_blackbulb($exec);
 	}
 	
 }
@@ -58,10 +58,10 @@ function copyLogsHistory() {
 	
 	if ( 0 < filesize( $mod_logs ) ) {
 		$exec = "$bin_cp $mod_logs $mod_logs_history/".gmdate("Ymd-H-i-s").".log";
-		exec_fruitywifi($exec);
+		exec_blackbulb($exec);
 		
 		$exec = "$bin_echo '' > $mod_logs";
-		//exec_fruitywifi($exec);
+		//exec_blackbulb($exec);
 	}
 }
 
@@ -69,14 +69,14 @@ function copyLogsHistory() {
 if ($action == "start") {
 	
 	$exec = "$bin_echo '' > $mod_logs";
-	exec_fruitywifi($exec);
+	exec_blackbulb($exec);
 	
 	if ($mod_pkt_type != "") $options_type = "-t $mod_pkt_type";
 	if ($mod_pkt_subtype != "") $options_subtype = "-s $mod_pkt_subtype";
 	if ($mod_pkt_channel != "") $options_channel = "-c $mod_pkt_channel";
 	
 	$exec = "python scan-recon.py -i mon0 $options_type $options_subtype $options_channel -l $mod_logs > /dev/null 2 &";
-	exec_fruitywifi($exec);
+	exec_blackbulb($exec);
 
 } else if($action == "stop") {
 
@@ -92,10 +92,10 @@ if ($action == "start") {
 if ($install == "install_$mod_name") {
 
     $exec = "chmod 755 install.sh";
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 
     $exec = "$bin_sudo ./install.sh > $log_path/install.txt &";
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 
     header("Location: ../../install.php?module=$mod_name");
     exit;

@@ -25,9 +25,9 @@ class WebServiceExtendedPlus extends WebServiceExtended {
 		//include "functions.php";
 		
 		$exec = "python scan-recon.py -i mon0 ";
-		//$out = exec_fruitywifi($exec);
+		//$out = exec_blackbulb($exec);
 				
-		$data = open_file("/usr/share/fruitywifi/logs/wifirecon.log");
+		$data = open_file("/usr/share/blackbulb/logs/wifirecon.log");
 		$out = explode("\n", $data);
 		
 		$output = [];
