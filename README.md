@@ -1,4 +1,4 @@
 module_wifirecon
 ============
 
-FruityWiFi WiFiRecon module
+BlackBlulb WiFiRecon module
